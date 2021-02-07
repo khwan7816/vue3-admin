@@ -1,0 +1,10 @@
+@function unit($size) {
+  @return $size * 0.625rem;
+}
+
+// Basic Colors
+$linkColor: var(--primary-color);
+$focusBorderColor: var(--primary-color);
+
+// z-index
+$topbar: 997;

@@ -1,0 +1,24 @@
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin line-clamp($line: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+@mixin lg() {
+  @media screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin sm() {
+  @media only screen and (max-width: 640px) {
+    @content;
+  }
+}

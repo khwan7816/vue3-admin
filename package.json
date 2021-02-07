@@ -6,17 +6,28 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start:debug": "yarn serve",
+    "start:staging": "yarn serve --mode staging",
+    "start:prod": "yarn serve --mode production",
+    "build:staging": "yarn build --mode staging",
+    "build:prod": "yarn build --mode production"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
+    "primeicons": "^4.1.0",
+    "primevue": "^3.2.1",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.19",
+    "@types/lodash": "^4.14.168",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",

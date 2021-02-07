@@ -1,30 +1,45 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app-container" :class="appClassNames">
+    <router-view />
   </div>
-  <router-view />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { computed } from "vue";
+import { useStore } from "vuex";
 
-#nav {
-  padding: 30px;
+export default {
+  setup() {
+    const store = useStore();
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    const mode = store.getters.config.mode;
+    const appClassNames = computed(() => {
+      return {
+        debug: mode === "debug",
+        staging: mode === "staging",
+      };
+    });
 
-    &.router-link-exact-active {
-      color: #42b983;
+    const token = computed(() => {
+      return store.getters["session/accessToken"];
+    });
+
+    const postGuest = async () => {
+      const data = await store.dispatch("session/guest");
+    };
+
+    if (!token.value) {
+      // postGuest();
+    } else {
+      store.commit("session/SET_ACCESS_TOKEN", { token: token.value });
     }
-  }
-}
-</style>
+
+    return {
+      appMode: process.env.VUE_APP_MODE,
+      appClassNames,
+    };
+  },
+};
+</script>
+
+<style lang="scss"></style>

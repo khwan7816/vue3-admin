@@ -1,0 +1,12 @@
+{
+  "api": "",
+  "web": "",
+  "kakaoClientId": "",
+  "facebookClientId": "",
+  "googleClientId": "",
+  "analytics": {
+    "appId": "",
+    "appName": "Vue3-Admin Production",
+    "trackingID": ""
+  }
+}
