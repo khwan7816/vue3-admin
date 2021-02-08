@@ -1,15 +1,15 @@
-import "primevue/resources/themes/luna-pink/theme.css"; // theme
+import "primevue/resources/themes/bootstrap4-dark-blue/theme.css"; // theme
 import "primevue/resources/primevue.min.css"; // core css
 import "primeicons/primeicons.css"; // icons
 
 import PrimeVue from "primevue/config";
-import Dialog from "primevue/dialog";
+import Button from "primevue/button";
 
 const plugin = {
   install: (app: any) => {
     app.use(PrimeVue, { ripple: true });
 
-    app.component("Dialog", Dialog);
+    app.component("Button", Button);
   },
 };
 

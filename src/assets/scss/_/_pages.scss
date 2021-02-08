@@ -1,11 +1,10 @@
 @charset "utf-8";
 
-#wrapper > .page {
+@import "../pages/main.scss";
+
+.layout-content > .page {
   position: relative;
   padding-bottom: env(safe-area-inset-bottom);
+  padding: unit(2);
   width: 100%;
-
-  > .page-content {
-    margin: 0 auto;
-  }
 }

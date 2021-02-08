@@ -1,11 +1,19 @@
 <template>
   <div id="wrapper" class="layout-wrapper" :class="pageClassNames">
-    <app-topbar @menubutton-click="onMenuButtonClick" :theme="theme" />
+    <app-topbar @menubutton-click="onClickMenuButton" />
 
     <app-menu :active="sidebarActive" />
 
+    <div
+      class="layout-mask"
+      :class="{ 'layout-mask-active': sidebarActive }"
+      @click="onClickMask"
+    ></div>
+
     <div class="layout-content">
-      <router-view />
+      <transition name="fade">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
@@ -14,11 +22,12 @@
 import AppTopbar from "@/components/common/AppTopbar";
 import AppMenu from "@/components/common/AppMenu";
 
+import DomHandler from "@/utils/DomHandler";
+
 export default {
   data() {
     return {
       sidebarActive: false,
-      theme: "luna-pink",
     };
   },
   computed: {
@@ -79,8 +88,19 @@ export default {
       }
     },
 
-    onMenuButtonClick() {
-      console.log(12341234);
+    onClickMenuButton() {
+      if (this.$data.sidebarActive) {
+        this.$data.sidebarActive = false;
+        DomHandler.removeClass(document.body, "blocked-scroll");
+      } else {
+        this.$data.sidebarActive = true;
+        DomHandler.addClass(document.body, "blocked-scroll");
+      }
+    },
+
+    onClickMask() {
+      this.$data.sidebarActive = false;
+      DomHandler.removeClass(document.body, "blocked-scroll");
     },
   },
   components: {

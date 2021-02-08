@@ -58,20 +58,20 @@ export default {
       activeSubmenus: {},
       menu: [
         {
-          name: "1뎁스 클릭 안됨",
-        },
-        {
-          name: "1뎁스 클릭 안됨",
-          to: "/",
-          meta: "",
+          name: "그룹제목",
           children: [
             {
-              name: "메뉴명",
-              to: "/",
+              name: "Page 1",
+              to: "/page1",
               meta: "",
             },
             {
-              name: "외부링크",
+              name: "Page 2",
+              to: "/page2",
+              meta: "",
+            },
+            {
+              name: "외부링크(네이버)",
               href: "https://naver.com",
               meta: "",
             },
@@ -156,6 +156,7 @@ export default {
         }
 
         &.router-link-exact-active {
+          color: var(--primary-color);
           font-weight: 700;
         }
 

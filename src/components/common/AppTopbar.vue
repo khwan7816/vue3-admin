@@ -5,7 +5,7 @@
     </a>
 
     <router-link to="/" class="logo">
-      <span>Vue3-admin</span>
+      <img src="@/assets/logo.png" alt="" loading="lazy" />
     </router-link>
 
     <ul ref="topbarMenu" class="topbar-menu">
@@ -17,13 +17,9 @@
 <script>
 export default {
   watch: {},
-  props: {
-    theme: null,
-  },
+  props: {},
   data() {
-    return {
-      activeMenuIndex: null,
-    };
+    return {};
   },
   methods: {},
 };
@@ -65,13 +61,13 @@ export default {
   }
 
   .logo {
-    span {
-      color: var(--primary-color);
-    }
+    padding: unit(1);
+    height: 100%;
 
-    /* img {
-      width: unit(1.8);
-    } */
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
 
     &:focus {
       outline: 0 none;
@@ -211,6 +207,7 @@ export default {
       width: 100%;
       height: unit(4);
       border-top: 1px solid var(--surface-d);
+      border-bottom: 1px solid var(--surface-d);
       background-color: var(--surface-a);
 
       > li {
