@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+.page.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .logo-container {
+    width: unit(16);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .form {
+    .input {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: unit(1) 0;
+
+      .p-inputtext {
+        min-width: unit(24);
+        max-width: unit(28);
+      }
+    }
+
+    .actions {
+      margin-top: unit(4);
+
+      .p-button {
+        width: 100%;
+      }
+    }
+
+    .sub-actions {
+      display: flex;
+      align-items: center;
+      margin-top: unit(2);
+
+      label {
+        margin-left: unit(1);
+      }
+    }
+  }
+}

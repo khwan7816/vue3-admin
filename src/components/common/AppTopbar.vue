@@ -4,12 +4,12 @@
       <i class="pi pi-bars"></i>
     </a>
 
-    <router-link to="/" class="logo">
+    <router-link :to="{ name: 'Main' }" class="logo">
       <img src="@/assets/logo.png" alt="" loading="lazy" />
     </router-link>
 
     <ul ref="topbarMenu" class="topbar-menu">
-      <li><router-link to="/setup">Get Started</router-link></li>
+      <li><router-link :to="{ name: 'Login' }">Get Started</router-link></li>
     </ul>
   </div>
 </template>

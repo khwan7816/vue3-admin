@@ -1,20 +1,22 @@
 <template>
   <div :class="['layout-sidebar', { active: active }]">
     <div class="layout-menu">
-      <template v-for="item of menu" :key="item.name">
-        <div class="menu-category">{{ item.name }}</div>
+      <template v-for="item of menu" :key="item.title">
+        <div class="menu-category">{{ item.title }}</div>
         <div class="menu-items">
-          <template v-for="child of item.children" :key="child.name">
+          <template v-for="child of item.children" :key="child.title">
+            <!-- 외부링크 -->
             <a v-if="child.href" :href="child.href" target="_blank">
-              {{ child.name }}
+              {{ child.title }}
             </a>
 
-            <router-link v-if="child.to" :to="child.to">
-              {{ child.name }}
-              <Tag v-if="child.badge" :value="child.badge" />
+            <!-- 내부링크 -->
+            <router-link v-if="child.to" :to="{ name: child.name }">
+              {{ child.title }}
+              <!-- <Tag v-if="child.badge" :value="child.badge" /> -->
             </router-link>
 
-            <template v-if="child.children">
+            <!-- <template v-if="child.children">
               <router-link
                 :to="child.children[0].to"
                 v-slot="{ isActive }"
@@ -40,7 +42,7 @@
                   </transition>
                 </div>
               </router-link>
-            </template>
+            </template> -->
           </template>
         </div>
       </template>
@@ -58,20 +60,22 @@ export default {
       activeSubmenus: {},
       menu: [
         {
-          name: "그룹제목",
+          title: "그룹제목",
           children: [
             {
-              name: "Page 1",
+              title: "Page 1",
               to: "/page1",
+              name: "Page1",
               meta: "",
             },
             {
-              name: "Page 2",
+              title: "Page 2",
               to: "/page2",
+              name: "Page2",
               meta: "",
             },
             {
-              name: "외부링크(네이버)",
+              title: "외부링크(네이버)",
               href: "https://naver.com",
               meta: "",
             },
@@ -80,7 +84,6 @@ export default {
       ],
     };
   },
-  menuService: null,
   methods: {
     toggleSubmenu(event, name) {
       this.activeSubmenus[name] = this.activeSubmenus[name] ? false : true;
